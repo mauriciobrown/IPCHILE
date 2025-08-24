@@ -1,0 +1,192 @@
+/* frontend/src/App.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #eef2f7; /* Un gris azulado claro para el fondo */
+  margin: 0;
+  padding: 0;
+  /* --- CAMBIO CLAVE: Quitamos 'display: flex' del body --- */
+  /* Esto permite que los elementos se posicionen más tradicionalmente */
+  min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la vista */
+  box-sizing: border-box; /* Asegura que padding y borde se incluyan en el tamaño total */
+}
+
+/* Estilos para la barra de navegación */
+nav {
+  background-color: #28a745; /* Verde vibrante */
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 1.5rem; /* Aumenta el espacio entre los enlaces */
+  justify-content: center; /* Centra los enlaces de navegación */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  position: fixed; /* Fija la navegación arriba */
+  top: 0;
+
+  /* --- CAMBIOS PARA CENTRAR LA NAVEGACIÓN FIJA Y LIMITAR SU ANCHO --- */
+  max-width: 500px; /* Misma anchura máxima que el recuadro de contenido */
+  width: 90%; /* Misma anchura responsiva que el recuadro de contenido */
+  left: 0;    /* Extiende el elemento a la izquierda */
+  right: 0;    /* Extiende el elemento a la derecha */
+  margin: 0 auto; /* Centra el elemento en el espacio disponible horizontalmente */
+  /* 'transform: translateX(-50%);' ya no es necesario con 'left: 0; right: 0; margin: 0 auto;' */
+  /* --- FIN CAMBIOS NAVEGACIÓN --- */
+
+  border-bottom-left-radius: 10px; /* Bordes inferiores redondeados para coincidir con el recuadro */
+  border-bottom-right-radius: 10px; /* Bordes inferiores redondeados para coincidir con el recuadro */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+/* Estilos para los contenedores principales de cada página (div.main-content-container) */
+/* Usamos la clase directamente, ya que App.js lo envuelve */
+.main-content-container {
+    margin-top: 100px; /* Ajusta este valor para dar espacio debajo del nav fijo */
+    margin-bottom: 2rem;
+    padding: 2.5rem; /* Más padding para espacio interno */
+    background-color: white; /* <-- Fondo blanco */
+    border-radius: 10px; /* <-- Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* <-- Sombra */
+    max-width: 500px; /* Ancho máximo para formularios */
+    width: 90%; /* Ancho responsivo */
+    text-align: center; /* Centra el texto dentro del contenedor */
+    /* --- CAMBIO CLAVE: Centrar el contenedor principal --- */
+    margin-left: auto; /* Centra el elemento en el espacio disponible horizontalmente */
+    margin-right: auto; /* Centra el elemento en el espacio disponible horizontalmente */
+    /* --- FIN CAMBIO CLAVE --- */
+}
+
+
+h2 {
+  color: #333;
+  margin-bottom: 1.5rem; /* Más espacio debajo de los títulos */
+  font-size: 1.8rem;
+}
+
+/* Estilos para campos de entrada y áreas de texto */
+input,
+textarea {
+  display: block;
+  margin: 1rem auto; /* Centrar horizontalmente y añadir margen */
+  padding: 0.85rem; /* Un poco más de padding */
+  width: calc(100% - 20px); /* Ajusta el ancho para el padding */
+  max-width: 350px; /* Un poco más estrecho para un look más limpio */
+  border: 1px solid #cce0ff; /* Borde azul claro */
+  border-radius: 6px; /* Bordes ligeramente más redondeados */
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #007bff; /* Borde azul al enfocar */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra de enfoque */
+  outline: none; /* Eliminar el contorno por defecto del navegador */
+}
+
+/* Estilos BASE para TODOS los botones y elementos tipo botón (modificado) */
+/* ESTA SECCIÓN REEMPLAZA EL ANTERIOR BLOQUE 'button { ... }' */
+.btn {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  /* Por defecto, los hacemos inline-block para que puedan ir uno al lado del otro */
+  display: inline-block;
+  text-decoration: none; /* Para enlaces que se vean como botones */
+  margin: 0.5rem 0.5rem; /* Margen para separarlos entre sí (ajusta si es necesario) */
+  box-sizing: border-box; /* Asegura que padding y borde se incluyan en el tamaño total */
+  text-align: center; /* Asegura que el texto esté centrado si el botón es más ancho */
+}
+
+/* Efectos hover/active para la clase base */
+.btn:hover {
+  transform: translateY(-2px); /* Efecto de "levantar" */
+}
+
+.btn:active {
+  transform: translateY(0); /* Quitar efecto al hacer click */
+}
+
+/* Estilos de COLOR específicos para los botones */
+.btn-primary {
+  background-color: #007bff; /* Azul primario */
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+}
+
+.btn-secondary {
+  background-color: #6c757d; /* Gris para "Editar" */
+  color: white;
+}
+.btn-secondary:hover {
+  background-color: #5a6268; /* Gris más oscuro */
+}
+
+.btn-danger {
+  background-color: #dc3545; /* Rojo para "Eliminar" */
+  color: white;
+}
+.btn-danger:hover {
+  background-color: #c82333; /* Rojo más oscuro */
+}
+
+
+/* Estilos para el contenedor de los botones de acción dentro de cada evento */
+.evento-acciones {
+  display: flex;
+  justify-content: center; /* Centra los botones horizontalmente */
+  gap: 10px; /* Espacio entre los botones */
+  margin-top: 1rem; /* Margen superior para separarlos de la descripción del evento */
+  flex-wrap: wrap; /* Permite que los botones se envuelvan a la siguiente línea en pantallas pequeñas */
+}
+
+/* Estilos para el contenedor del botón "Crear Nuevo Evento" */
+.crear-evento-link-container {
+    text-align: center; /* Centra el contenido (el Link-botón) */
+    margin-top: 1.5rem; /* Para separarlo del título */
+    margin-bottom: 1.5rem; /* Espacio debajo del botón de crear */
+}
+
+
+/* Estilos específicos para la lista de eventos */
+ul {
+  list-style: none; /* Eliminar viñetas */
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+li {
+  background-color: #f8f9fa; /* Fondo ligeramente gris para cada evento */
+  border: 1px solid #e0e6ed;
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: left; /* Alinear texto a la izquierda dentro del elemento de lista */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+li h3 { /* Añadido: Estilo para el título del evento dentro de la tarjeta */
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+li p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem; /* Ajustado para un espaciado más uniforme */
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Estilo para el mensaje de "no eventos" */
+.no-eventos-mensaje {
+    text-align: center;
+    color: #666;
+    margin-top: 2rem;
+    font-style: italic;
+}
