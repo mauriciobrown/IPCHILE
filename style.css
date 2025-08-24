@@ -1,0 +1,108 @@
+/* style.css - Personalizaciones para el Portafolio de Mauricio Brown */
+
+/* --- Importación de Fuentes de Google Fonts --- */
+/* Montserrat para encabezados y Open Sans para el cuerpo */
+body {
+    font-family: 'Open Sans', sans-serif; /* Fuente general del cuerpo */
+    color: #343a40; /* Color de texto estándar */
+    background-color: #f8f9fa; /* Fondo general más claro */
+}
+ 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Fuentes para títulos */
+    color: #343a40; /* Color de título estándar */
+}
+
+/* --- Ajustes Específicos --- */
+
+/* Asegura que las secciones tengan una altura mínima si el contenido es corto,
+   o para el efecto de scrollspy */
+section {
+    min-height: 400px; /* Altura mínima para secciones (ajusta si es necesario) */
+    display: flex; /* Para centrar el contenido verticalmente en la sección */
+    align-items: center; /* Centra verticalmente */
+}
+
+/* Header Navbar: Ajustes de enlaces para mejor visibilidad */
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important; /* Ligeramente más brillante */
+    font-weight: 600; /* Semi-negrita */
+    transition: color 0.3s ease;
+    padding: 0.8rem 1.2rem; /* Más padding para los links */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff !important; /* Color primario de Bootstrap al pasar el ratón */
+}
+
+/* Ajustes para la sección de Inicio (anteriormente Hero) */
+/* La imagen de perfil en la sección de inicio ya tiene estilos inline en el HTML. */
+/* Si tuvieras una clase como .hero-image en la imagen, cambiaría a .inicio-imagen */
+/* .inicio-imagen img {
+    border-color: #007bff !important;
+} */
+/* Nota: En tu HTML, la imagen ya tiene estilos inline (width, height, object-fit)
+   y las clases directamente en el <img>, por lo que este selector .hero-image
+   no tiene efecto en tu HTML actual. El borde de color se aplica directamente en el HTML. */
+
+
+/* Sección de Proyectos: Estilo para las imágenes de los proyectos */
+.project-img {
+    height: 200px; /* Altura fija para las miniaturas de proyectos */
+    object-fit: cover; /* Recorta la imagen para que cubra el espacio */
+    border-bottom: 3px solid #007bff; /* Pequeña línea para destacar */
+}
+
+/* Estilo para las tarjetas de proyecto al pasar el ratón */
+/* Aquí .project-item se aplica a la tarjeta (col-md-6, etc.) si quieres el efecto */
+/* Si quieres el efecto en .card, tendrías que aplicar la clase .project-item a cada .card */
+/* O simplemente puedes usar .card:hover dentro de la sección de proyectos */
+#proyectos .card:hover { /* Aplicado a la tarjeta dentro de la sección de proyectos */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important; /* Sombra más pronunciada al pasar el ratón */
+}
+
+
+/* Sección de Habilidades: Íconos más grandes */
+/* Ajuste el selector de .skill-category i a #habilidades .card i si aplica a los íconos dentro de las tarjetas de habilidades */
+#habilidades .card i { 
+    font-size: 3rem; /* Tamaño del icono */
+    color: #007bff; /* Color primario */
+    margin-bottom: 1rem; /* Margen inferior */
+}
+
+/* Sección de Contacto: Color de fondo primario y texto blanco */
+#contacto { /* Cambiado de #contact a #contacto */
+    background-color: #007bff !important; /* Usa el color primario de Bootstrap */
+    color: #ffffff !important;
+}
+
+#contacto a { /* Cambiado de #contact a #contacto */
+    color: #ffffff !important; /* Enlaces blancos en la sección de contacto */
+    text-decoration: underline; /* Subrayado para los enlaces en contacto */
+}
+
+#contacto a:hover { /* Cambiado de #contact a #contacto */
+    color: rgba(255, 255, 255, 0.75) !important; /* Ligeramente transparente al pasar el ratón */
+}
+
+/* Footer: Ajustes de padding */
+footer {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* ScrollSpy Offset (para que los enlaces de navegación no se superpongan con la barra fija) */
+/* Este selector body::before no necesita cambio, ya que no se refiere a IDs de sección. */
+body::before {
+    display: block;
+    content: '';
+    height: 60px; /* Altura de tu navbar fija */
+    margin-top: -60px; /* Margen negativo igual a la altura */
+}
+
+/* --- Animaciones (Animate.css) --- */
+/*
+Puedes aplicar clases como animate__fadeInUp, animate__delay-1s, etc.
+directamente en tu HTML para animaciones sutiles.
+*/
